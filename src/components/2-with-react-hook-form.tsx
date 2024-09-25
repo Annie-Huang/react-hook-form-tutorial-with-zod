@@ -26,15 +26,20 @@ const ReactHookForm: React.FC = () => {
 
   return (
     <form
-      onSubmit={handleSubmit}
+      // onSubmit={handleSubmit}
       style={{display: "flex", flexDirection: "column", gap: 5}}
     >
       <div>
         <label>First Name</label>
+        {/*<input*/}
+        {/*  name="firstName"*/}
+        {/*  value={formData.firstName}*/}
+        {/*  onChange={handleChange}*/}
+        {/*/>*/}
         <input
-          name="firstName"
-          value={formData.firstName}
-          onChange={handleChange}
+          {...register('firstName', {
+            required: 'First Name is required',
+          })}
         />
         {errors.firstName && (
           <p style={{color: "orangered"}}>{errors.firstName}</p>
