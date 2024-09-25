@@ -27,3 +27,4 @@ PS C:\react>
 -------------------------------------------
 
 PS C:\react\react-hook-form-tutorial-with-zod> npm install
+PS C:\react\react-hook-form-tutorial-with-zod> npm install react-datepicker
