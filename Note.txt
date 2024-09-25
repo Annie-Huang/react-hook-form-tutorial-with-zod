@@ -3,6 +3,8 @@ React Hook Form (with Zod) - Full Tutorial 2024 (https://www.youtube.com/watch?v
 https://github.com/piyush-eon/react-hook-form-tutorial
 https://github.com/Annie-Huang/react-hook-form-tutorial-with-zod
 
+https://react-hook-form.com/get-started
+
 ===============================================================================================
 
 PS C:\react> npm create vite@latest
@@ -28,3 +30,8 @@ PS C:\react>
 
 PS C:\react\react-hook-form-tutorial-with-zod> npm install
 PS C:\react\react-hook-form-tutorial-with-zod> npm install react-datepicker
+PS C:\react\react-hook-form-tutorial-with-zod> npm install react-hook-form
+
+--------------------------------------------
+What does the app do:
+- Click on "Subscribe to Newsletter" will show additional input field.
