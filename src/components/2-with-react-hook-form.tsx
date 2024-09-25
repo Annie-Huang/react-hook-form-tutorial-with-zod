@@ -172,14 +172,14 @@ const ReactHookForm: React.FC = () => {
               <p style={{color: "orangered"}}>{errors.hobbies[index].name.message}</p>
             )}
 
-            {formData.hobbies.length > 1 && (
-              <button type="button" onClick={() => removeHobby(index)}>
+            {fields.length > 1 && (
+              <button type="button" onClick={() => remove(index)}>
                 Remove Hobby
               </button>
             )}
           </div>
         ))}
-        <button type="button" onClick={addHobby}>
+        <button type="button" onClick={() => append({name: ""})}>
           Add Hobby
         </button>
       </div>
