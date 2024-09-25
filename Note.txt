@@ -1,0 +1,25 @@
+React Hook Form (with Zod) - Full Tutorial 2024 (https://www.youtube.com/watch?v=qyzznUNe1ho)
+
+https://github.com/piyush-eon/react-hook-form-tutorial
+https://github.com/Annie-Huang/react-hook-form-tutorial-with-zod
+
+===============================================================================================
+
+PS C:\react> npm create vite@latest
+
+> npx
+> create-vite
+
+√ Project name: ... react-hook-form-tutorial-with-zod
+√ Select a framework: » React
+√ Select a variant: » TypeScript
+
+Scaffolding project in C:\react\react-hook-form-tutorial-with-zod...
+
+Done. Now run:
+
+  cd react-hook-form-tutorial-with-zod
+  npm install
+  npm run dev
+
+PS C:\react>
