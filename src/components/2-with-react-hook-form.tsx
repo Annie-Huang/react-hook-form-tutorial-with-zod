@@ -9,6 +9,7 @@ import {useForm} from 'react-hook-form';
 const ReactHookForm: React.FC = () => {
   const {
     register,
+    formState: {errors, isSubmitting}
   } = useForm<FormData>({
     defaultValues: {
       firstName: "",
@@ -42,7 +43,8 @@ const ReactHookForm: React.FC = () => {
           })}
         />
         {errors.firstName && (
-          <p style={{color: "orangered"}}>{errors.firstName}</p>
+          // <p style={{color: "orangered"}}>{errors.firstName}</p>
+          <p style={{color: "orangered"}}>{errors.firstName.message}</p>
         )}
       </div>
 
