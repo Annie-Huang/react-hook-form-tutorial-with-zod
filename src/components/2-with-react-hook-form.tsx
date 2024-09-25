@@ -81,45 +81,31 @@ const ReactHookForm: React.FC = () => {
 
       <div>
         <label>Gender</label>
-        <select name="gender" value={formData.gender} onChange={handleChange}>
+        <select {...register("gender", {required: "Gender is required"})}>
           <option value="">Select...</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
           <option value="other">Other</option>
         </select>
-        {errors.gender && <p style={{color: "orangered"}}>{errors.gender}</p>}
+        {errors.gender && <p style={{color: "orangered"}}>{errors.gender.message}</p>}
       </div>
 
       <div>
         <label>Address</label>
         <input
-          name="city"
-          value={formData.address.city}
-          onChange={(e) =>
-            handleChange({
-              ...e,
-              target: {...e.target, name: "address.city"},
-            })
-          }
+          {...register("address.city", {required: "City is required"})}
           placeholder="City"
         />
         {errors.address?.city && (
-          <p style={{color: "orangered"}}>{errors.address.city}</p>
+          <p style={{color: "orangered"}}>{errors.address.city.message}</p>
         )}
 
         <input
-          name="state"
-          value={formData.address.state}
-          onChange={(e) =>
-            handleChange({
-              ...e,
-              target: {...e.target, name: "address.state"},
-            })
-          }
+          {...register("address.state", {required: "State is required"})}
           placeholder="State"
         />
         {errors.address?.state && (
-          <p style={{color: "orangered"}}>{errors.address.state}</p>
+          <p style={{color: "orangered"}}>{errors.address.state.message}</p>
         )}
       </div>
 
