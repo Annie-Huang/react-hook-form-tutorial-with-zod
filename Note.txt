@@ -23,3 +23,7 @@ Done. Now run:
   npm run dev
 
 PS C:\react>
+
+-------------------------------------------
+
+PS C:\react\react-hook-form-tutorial-with-zod> npm install
