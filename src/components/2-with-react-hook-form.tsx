@@ -4,9 +4,25 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import simulatedApi from "../api/api";
 import {FormData} from "../types";
+import {useForm} from 'react-hook-form';
 
 const ReactHookForm: React.FC = () => {
-
+  const {
+    register,
+  } = useForm<FormData>({
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      age: 18,
+      gender: "",
+      address: {city: "", state: ""},
+      hobbies: [{name: ""}],
+      startDate: new Date(),
+      subscribe: false,
+      referral: "",
+    },
+  });
 
   return (
     <form
