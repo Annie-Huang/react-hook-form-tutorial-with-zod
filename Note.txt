@@ -4,6 +4,8 @@ https://github.com/piyush-eon/react-hook-form-tutorial
 https://github.com/Annie-Huang/react-hook-form-tutorial-with-zod
 
 https://react-hook-form.com/get-started
+https://react-hook-form.com/docs/usecontroller
+https://react-hook-form.com/docs/usecontroller/controller
 
 ===============================================================================================
 
@@ -33,5 +35,10 @@ PS C:\react\react-hook-form-tutorial-with-zod> npm install react-datepicker
 PS C:\react\react-hook-form-tutorial-with-zod> npm install react-hook-form
 
 --------------------------------------------
+React-Hook-Form notes:
+- Have to use Controller element and control in useForm when dealing with 3rd party library.
+
+--------------------------------------------
+
 What does the app do:
 - Click on "Subscribe to Newsletter" will show additional input field.

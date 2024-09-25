@@ -4,12 +4,13 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import simulatedApi from "../api/api";
 import {FormData} from "../types";
-import {useForm} from 'react-hook-form';
+import {Controller, useForm} from 'react-hook-form';
 
 const ReactHookForm: React.FC = () => {
   const {
     register,
-    formState: {errors, isSubmitting}
+    formState: {errors, isSubmitting},
+    control,
   } = useForm<FormData>({
     defaultValues: {
       firstName: "",
@@ -109,13 +110,27 @@ const ReactHookForm: React.FC = () => {
         )}
       </div>
 
+      {/* https://react-hook-form.com/docs/usecontroller/controller
+          Have to use Controller when dealing with 3rd party library.
+      */}
       <div>
         <label>Start Date</label>
-        <DatePicker
-          selected={formData.startDate}
-          onChange={(date: Date | null) =>
-            setFormData({...formData, startDate: date || new Date()})
-          }
+        {/*<DatePicker*/}
+        {/*  selected={formData.startDate}*/}
+        {/*  onChange={(date: Date | null) =>*/}
+        {/*    setFormData({...formData, startDate: date || new Date()})*/}
+        {/*  }*/}
+        {/*/>*/}
+        <Controller
+          control={control}
+          name="startDate"
+          render={({field}) => (
+            <DatePicker
+              placeholderText="Select date"
+              onChange={(date: Date | null) => field.onChange(date)}
+              selected={field.value}
+            />
+          )}
         />
       </div>
 
