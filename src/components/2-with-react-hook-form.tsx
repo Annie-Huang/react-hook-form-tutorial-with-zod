@@ -38,9 +38,7 @@ const ReactHookForm: React.FC = () => {
         {/*  onChange={handleChange}*/}
         {/*/>*/}
         <input
-          {...register('firstName', {
-            required: 'First Name is required',
-          })}
+          {...register('firstName', {required: 'First Name is required'})}
         />
         {errors.firstName && (
           // <p style={{color: "orangered"}}>{errors.firstName}</p>
@@ -51,30 +49,34 @@ const ReactHookForm: React.FC = () => {
       <div>
         <label>Last Name</label>
         <input
-          name="lastName"
-          value={formData.lastName}
-          onChange={handleChange}
+          {...register("lastName", {required: "Last Name is required"})}
         />
         {errors.lastName && (
-          <p style={{color: "orangered"}}>{errors.lastName}</p>
+          <p style={{color: "orangered"}}>{errors.lastName.message}</p>
         )}
       </div>
 
       <div>
         <label>Email</label>
-        <input name="email" value={formData.email} onChange={handleChange}/>
-        {errors.email && <p style={{color: "orangered"}}>{errors.email}</p>}
+        <input
+          {...register("email", {
+            required: "Email is required",
+            pattern: {value: /^\S+@\S+$/i, message: "Invalid email address"},
+          })}
+        />
+        {errors.email && <p style={{color: "orangered"}}>{errors.email.message}</p>}
       </div>
 
       <div>
         <label>Age</label>
         <input
           type="number"
-          name="age"
-          value={formData.age}
-          onChange={handleChange}
+          {...register("age", {
+            required: "Age is required",
+            min: {value: 18, message: "You must be at least 18 years old"},
+          })}
         />
-        {errors.age && <p style={{color: "orangered"}}>{errors.age}</p>}
+        {errors.age && <p style={{color: "orangered"}}>{errors.age.message}</p>}
       </div>
 
       <div>
