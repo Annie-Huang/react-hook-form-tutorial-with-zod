@@ -161,7 +161,7 @@ const ReactHookForm: React.FC = () => {
         {/*  </div>*/}
         {/*))}*/}
         {fields.map((hobby, index) => (
-          <div key={index}>
+          <div key={hobby.id}>
             <input
               {...register(`hobbies.${index}.name`, {
                 required: "Hobby name is required",
