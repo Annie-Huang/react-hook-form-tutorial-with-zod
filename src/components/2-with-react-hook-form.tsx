@@ -4,7 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import simulatedApi from "../api/api";
 import {FormData} from "../types";
-import {Controller, useForm} from 'react-hook-form';
+import {Controller, useFieldArray, useForm} from 'react-hook-form';
 
 const ReactHookForm: React.FC = () => {
   const {
@@ -24,6 +24,11 @@ const ReactHookForm: React.FC = () => {
       subscribe: false,
       referral: "",
     },
+  });
+
+  const {fields, append, remove} = useFieldArray({
+    control,
+    name: "hobbies", // this is to match the FormData field of hobbies
   });
 
   return (
@@ -136,16 +141,35 @@ const ReactHookForm: React.FC = () => {
 
       <div>
         <label>Hobbies</label>
-        {formData.hobbies.map((hobby, index) => (
+        {/*{formData.hobbies.map((hobby, index) => (*/}
+        {/*  <div key={index}>*/}
+        {/*    <input*/}
+        {/*      name="name"*/}
+        {/*      value={hobby.name}*/}
+        {/*      onChange={(e) => handleHobbyChange(index, e)}*/}
+        {/*      placeholder="Hobby Name"*/}
+        {/*    />*/}
+        {/*    {errors.hobbies?.[index]?.name && (*/}
+        {/*      <p style={{color: "orangered"}}>{errors.hobbies[index].name}</p>*/}
+        {/*    )}*/}
+
+        {/*    {formData.hobbies.length > 1 && (*/}
+        {/*      <button type="button" onClick={() => removeHobby(index)}>*/}
+        {/*        Remove Hobby*/}
+        {/*      </button>*/}
+        {/*    )}*/}
+        {/*  </div>*/}
+        {/*))}*/}
+        {fields.map((hobby, index) => (
           <div key={index}>
             <input
-              name="name"
-              value={hobby.name}
-              onChange={(e) => handleHobbyChange(index, e)}
+              {...register(`hobbies.${index}.name`, {
+                required: "Hobby name is required",
+              })}
               placeholder="Hobby Name"
             />
             {errors.hobbies?.[index]?.name && (
-              <p style={{color: "orangered"}}>{errors.hobbies[index].name}</p>
+              <p style={{color: "orangered"}}>{errors.hobbies[index].name.message}</p>
             )}
 
             {formData.hobbies.length > 1 && (

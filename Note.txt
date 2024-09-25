@@ -6,6 +6,7 @@ https://github.com/Annie-Huang/react-hook-form-tutorial-with-zod
 https://react-hook-form.com/get-started
 https://react-hook-form.com/docs/usecontroller
 https://react-hook-form.com/docs/usecontroller/controller
+https://react-hook-form.com/docs/usefieldarray
 
 ===============================================================================================
 
