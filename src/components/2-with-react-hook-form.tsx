@@ -11,6 +11,7 @@ const ReactHookForm: React.FC = () => {
     register,
     formState: { errors, isSubmitting },
     control,
+    getValues,
   } = useForm<FormData>({
     defaultValues: {
       firstName: '',
@@ -197,17 +198,17 @@ const ReactHookForm: React.FC = () => {
         <input type='checkbox' id='sub' {...register('subscribe')} />
       </div>
 
-      {formData.subscribe && (
+      {getValues('subscribe') && (
         <div>
           <label>Referral Source</label>
           <input
-            name='referral'
-            value={formData.referral}
-            onChange={handleChange}
+            {...register('referral', {
+              required: 'Referral source is required if subscribing',
+            })}
             placeholder='How did you hear about us?'
           />
           {errors.referral && (
-            <p style={{ color: 'orangered' }}>{errors.referral}</p>
+            <p style={{ color: 'orangered' }}>{errors.referral.message}</p>
           )}
         </div>
       )}
