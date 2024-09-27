@@ -121,7 +121,7 @@ const ReactHookFormWithZod: React.FC = () => {
       </div>
       <div>
         <label>Age</label>
-        <input type='number' {...register('age')} />
+        <input type='number' {...register('age', { valueAsNumber: true })} />
         {errors.age && (
           <p style={{ color: 'orangered' }}>{errors.age.message}</p>
         )}
@@ -203,6 +203,17 @@ const ReactHookFormWithZod: React.FC = () => {
             {errors.hobbies?.[index]?.name && (
               <p style={{ color: 'orangered' }}>
                 {errors.hobbies[index].name.message}
+              </p>
+            )}
+
+            <input
+              {...register(`hobbies.${index}.years`, { valueAsNumber: true })}
+              placeholder='Years'
+              type='number'
+            />
+            {errors.hobbies?.[index]?.years && (
+              <p style={{ color: 'orangered' }}>
+                {errors.hobbies[index].years.message}
               </p>
             )}
 

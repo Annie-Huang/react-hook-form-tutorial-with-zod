@@ -50,4 +50,4 @@ What does the app do:
 
 A problem with the reac-hook-form:
 - When I click Subscribe to Newsletter checkbox, the Referral Source input field does not show. Not sure what's wrong with getValues('subscribe')
-
+- When you clear the age from the input field, it shows 'Expected number, received nan', user will not undertsand that is nan....
