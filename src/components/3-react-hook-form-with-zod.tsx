@@ -3,7 +3,7 @@ import React from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import simulatedApi from '../api/api';
-import { FormData } from '../types';
+// import { FormData } from '../types';
 import {
   Controller,
   SubmitHandler,
@@ -11,6 +11,7 @@ import {
   useForm,
 } from 'react-hook-form';
 import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 const formSchema = z.object({
   firstName: z.string().min(1, 'First Name is required'),
@@ -37,6 +38,9 @@ const formSchema = z.object({
   referral: z.string().default(''),
 });
 
+// Define FormData type based on schema
+type FormData = z.infer<typeof formSchema>;
+
 const ReactHookFormWithZod: React.FC = () => {
   const {
     register,
@@ -51,13 +55,15 @@ const ReactHookFormWithZod: React.FC = () => {
       lastName: '',
       email: '',
       age: 18,
-      gender: '',
+      // gender: '',
+      gender: undefined,
       address: { city: '', state: '' },
       hobbies: [{ name: '' }],
       startDate: new Date(),
       subscribe: false,
       referral: '',
     },
+    resolver: zodResolver(formSchema),
   });
 
   const { fields, append, remove } = useFieldArray({
