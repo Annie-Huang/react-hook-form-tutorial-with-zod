@@ -58,7 +58,8 @@ const ReactHookFormWithZod: React.FC = () => {
       // gender: '',
       gender: undefined,
       address: { city: '', state: '' },
-      hobbies: [{ name: '' }],
+      // hobbies: [{ name: '' }],
+      hobbies: [{ name: '', years: 0 }],
       startDate: new Date(),
       subscribe: false,
       referral: '',
@@ -79,6 +80,7 @@ const ReactHookFormWithZod: React.FC = () => {
     } catch (error: any) {
       console.error('Error:', error);
       setError('root', {
+        type: 'manual',
         message: error.message,
       });
     }
@@ -224,7 +226,7 @@ const ReactHookFormWithZod: React.FC = () => {
             )}
           </div>
         ))}
-        <button type='button' onClick={() => append({ name: '' })}>
+        <button type='button' onClick={() => append({ name: '', years: 0 })}>
           Add Hobby
         </button>
       </div>
