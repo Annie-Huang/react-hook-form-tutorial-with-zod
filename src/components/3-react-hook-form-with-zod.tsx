@@ -17,6 +17,13 @@ const formSchema = z.object({
   lastName: z.string().min(1, 'Last Name is required'),
   email: z.string().email('Invalid email address'),
   age: z.number().min(18, 'You must be at least 18 years old'),
+  gender: z.enum(['male', 'female', 'other'], {
+    message: 'Gender is required',
+  }),
+  address: z.object({
+    city: z.string().min(1, 'City is required'),
+    state: z.string().min(1, 'State is required'),
+  }),
 });
 
 const ReactHookFormWithZod: React.FC = () => {
