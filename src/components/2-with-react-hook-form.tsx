@@ -4,7 +4,12 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import simulatedApi from '../api/api';
 import { FormData } from '../types';
-import { Controller, useFieldArray, useForm } from 'react-hook-form';
+import {
+  Controller,
+  SubmitHandler,
+  useFieldArray,
+  useForm,
+} from 'react-hook-form';
 
 const ReactHookForm: React.FC = () => {
   const {
@@ -12,6 +17,7 @@ const ReactHookForm: React.FC = () => {
     formState: { errors, isSubmitting },
     control,
     getValues,
+    handleSubmit,
   } = useForm<FormData>({
     defaultValues: {
       firstName: '',
@@ -32,9 +38,11 @@ const ReactHookForm: React.FC = () => {
     name: 'hobbies', // this is to match the FormData field of hobbies
   });
 
+  const onSubmit: SubmitHandler<FormData> = async (data) => {};
+
   return (
     <form
-      // onSubmit={handleSubmit}
+      onSubmit={handleSubmit(onSubmit)}
       style={{ display: 'flex', flexDirection: 'column', gap: 5 }}
     >
       <div>
