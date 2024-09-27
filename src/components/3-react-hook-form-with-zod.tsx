@@ -96,9 +96,10 @@ const ReactHookFormWithZod: React.FC = () => {
         {/*  value={formData.firstName}*/}
         {/*  onChange={handleChange}*/}
         {/*/>*/}
-        <input
-          {...register('firstName', { required: 'First Name is required' })}
-        />
+        {/*<input*/}
+        {/*  {...register('firstName', { required: 'First Name is required' })}*/}
+        {/*/>*/}
+        <input {...register('firstName')} />
         {errors.firstName && (
           // <p style={{color: "orangered"}}>{errors.firstName}</p>
           <p style={{ color: 'orangered' }}>{errors.firstName.message}</p>
@@ -106,41 +107,28 @@ const ReactHookFormWithZod: React.FC = () => {
       </div>
       <div>
         <label>Last Name</label>
-        <input
-          {...register('lastName', { required: 'Last Name is required' })}
-        />
+        <input {...register('lastName')} />
         {errors.lastName && (
           <p style={{ color: 'orangered' }}>{errors.lastName.message}</p>
         )}
       </div>
       <div>
         <label>Email</label>
-        <input
-          {...register('email', {
-            required: 'Email is required',
-            pattern: { value: /^\S+@\S+$/i, message: 'Invalid email address' },
-          })}
-        />
+        <input {...register('email')} />
         {errors.email && (
           <p style={{ color: 'orangered' }}>{errors.email.message}</p>
         )}
       </div>
       <div>
         <label>Age</label>
-        <input
-          type='number'
-          {...register('age', {
-            required: 'Age is required',
-            min: { value: 18, message: 'You must be at least 18 years old' },
-          })}
-        />
+        <input type='number' {...register('age')} />
         {errors.age && (
           <p style={{ color: 'orangered' }}>{errors.age.message}</p>
         )}
       </div>
       <div>
         <label>Gender</label>
-        <select {...register('gender', { required: 'Gender is required' })}>
+        <select {...register('gender')}>
           <option value=''>Select...</option>
           <option value='male'>Male</option>
           <option value='female'>Female</option>
@@ -152,18 +140,12 @@ const ReactHookFormWithZod: React.FC = () => {
       </div>
       <div>
         <label>Address</label>
-        <input
-          {...register('address.city', { required: 'City is required' })}
-          placeholder='City'
-        />
+        <input {...register('address.city')} placeholder='City' />
         {errors.address?.city && (
           <p style={{ color: 'orangered' }}>{errors.address.city.message}</p>
         )}
 
-        <input
-          {...register('address.state', { required: 'State is required' })}
-          placeholder='State'
-        />
+        <input {...register('address.state')} placeholder='State' />
         {errors.address?.state && (
           <p style={{ color: 'orangered' }}>{errors.address.state.message}</p>
         )}
@@ -215,9 +197,7 @@ const ReactHookFormWithZod: React.FC = () => {
         {fields.map((hobby, index) => (
           <div key={hobby.id}>
             <input
-              {...register(`hobbies.${index}.name`, {
-                required: 'Hobby name is required',
-              })}
+              {...register(`hobbies.${index}.name`)}
               placeholder='Hobby Name'
             />
             {errors.hobbies?.[index]?.name && (
@@ -246,9 +226,7 @@ const ReactHookFormWithZod: React.FC = () => {
         <div>
           <label>Referral Source</label>
           <input
-            {...register('referral', {
-              required: 'Referral source is required if subscribing',
-            })}
+            {...register('referral')}
             placeholder='How did you hear about us?'
           />
           {errors.referral && (
