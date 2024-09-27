@@ -24,6 +24,14 @@ const formSchema = z.object({
     city: z.string().min(1, 'City is required'),
     state: z.string().min(1, 'State is required'),
   }),
+  hobbies: z
+    .array(
+      z.object({
+        name: z.string().min(1, 'Hobby name is required'),
+        years: z.number().min(1, 'Must be at least 1 year'),
+      }),
+    )
+    .min(1, 'At least one hobby is required'),
 });
 
 const ReactHookFormWithZod: React.FC = () => {
