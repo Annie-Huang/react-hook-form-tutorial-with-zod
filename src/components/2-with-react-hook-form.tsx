@@ -18,6 +18,7 @@ const ReactHookForm: React.FC = () => {
     control,
     getValues,
     handleSubmit,
+    setError,
   } = useForm<FormData>({
     defaultValues: {
       firstName: '',
@@ -42,11 +43,12 @@ const ReactHookForm: React.FC = () => {
     try {
       const response = await simulatedApi(data);
       console.log('Success:', response);
+      // Handle success (e.g., show a success message, redirect, etc.)
     } catch (error: any) {
       console.error('Error:', error);
-      setErrors({ root: error.message });
-    } finally {
-      setIsSubmitting(false);
+      setError('root', {
+        message: error.message,
+      });
     }
   };
 
@@ -231,7 +233,7 @@ const ReactHookForm: React.FC = () => {
         </div>
       )}
 
-      {errors.root && <p style={{ color: 'red' }}>{errors.root}</p>}
+      {errors.root && <p style={{ color: 'red' }}>{errors.root.message}</p>}
 
       <button type='submit' disabled={isSubmitting}>
         {isSubmitting ? 'Submitting...' : 'Submit'}
