@@ -32,6 +32,9 @@ const formSchema = z.object({
       }),
     )
     .min(1, 'At least one hobby is required'),
+  startDate: z.date(),
+  subscribe: z.boolean(),
+  referral: z.string().default(''),
 });
 
 const ReactHookFormWithZod: React.FC = () => {
