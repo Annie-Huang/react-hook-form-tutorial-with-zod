@@ -38,7 +38,17 @@ const ReactHookForm: React.FC = () => {
     name: 'hobbies', // this is to match the FormData field of hobbies
   });
 
-  const onSubmit: SubmitHandler<FormData> = async (data) => {};
+  const onSubmit: SubmitHandler<FormData> = async (data) => {
+    try {
+      const response = await simulatedApi(data);
+      console.log('Success:', response);
+    } catch (error: any) {
+      console.error('Error:', error);
+      setErrors({ root: error.message });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <form
