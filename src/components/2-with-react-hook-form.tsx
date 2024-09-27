@@ -185,16 +185,8 @@ const ReactHookForm: React.FC = () => {
       </div>
 
       <div>
-        <label htmlFor="sub">Subscribe to Newsletter</label>
-        <input
-          type="checkbox"
-          id="sub"
-          name="subscribe"
-          checked={formData.subscribe}
-          onChange={(e) =>
-            setFormData({...formData, subscribe: e.target.checked})
-          }
-        />
+        <label htmlFor='sub'>Subscribe to Newsletter</label>
+        <input type='checkbox' id='sub' {...register('subscribe')} />
       </div>
 
       {formData.subscribe && (
