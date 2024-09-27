@@ -7,6 +7,7 @@ https://react-hook-form.com/get-started
 https://react-hook-form.com/docs/usecontroller
 https://react-hook-form.com/docs/usecontroller/controller
 https://react-hook-form.com/docs/usefieldarray
+https://react-hook-form.com/get-started#SchemaValidation
 
 ===============================================================================================
 
@@ -34,6 +35,7 @@ PS C:\react>
 PS C:\react\react-hook-form-tutorial-with-zod> npm install
 PS C:\react\react-hook-form-tutorial-with-zod> npm install react-datepicker
 PS C:\react\react-hook-form-tutorial-with-zod> npm install react-hook-form
+PS C:\react\react-hook-form-tutorial-with-zod> npm i zod @hookform/resolvers
 
 --------------------------------------------
 React-Hook-Form notes:
@@ -45,3 +47,7 @@ What does the app do:
 - Click on "Subscribe to Newsletter" will show additional input field.
 - Click submit without entering anything will show you all the validation on each field.
 - There are 50% / 50% of getting error even if all your fields are enter correctly. (Math.random() in the api.ts)
+
+A problem with the reac-hook-form:
+- When I click Subscribe to Newsletter checkbox, the Referral Source input field does not show. Not sure what's wrong with getValues('subscribe')
+
