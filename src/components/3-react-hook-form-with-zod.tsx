@@ -10,6 +10,14 @@ import {
   useFieldArray,
   useForm,
 } from 'react-hook-form';
+import { z } from 'zod';
+
+const formSchema = z.object({
+  firstName: z.string().min(1, 'First Name is required'),
+  lastName: z.string().min(1, 'Last Name is required'),
+  email: z.string().email('Invalid email address'),
+  age: z.number().min(18, 'You must be at least 18 years old'),
+});
 
 const ReactHookFormWithZod: React.FC = () => {
   const {
