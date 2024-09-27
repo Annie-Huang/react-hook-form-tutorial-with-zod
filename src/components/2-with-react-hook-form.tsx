@@ -72,7 +72,6 @@ const ReactHookForm: React.FC = () => {
           <p style={{ color: 'orangered' }}>{errors.firstName.message}</p>
         )}
       </div>
-
       <div>
         <label>Last Name</label>
         <input
@@ -82,7 +81,6 @@ const ReactHookForm: React.FC = () => {
           <p style={{ color: 'orangered' }}>{errors.lastName.message}</p>
         )}
       </div>
-
       <div>
         <label>Email</label>
         <input
@@ -95,7 +93,6 @@ const ReactHookForm: React.FC = () => {
           <p style={{ color: 'orangered' }}>{errors.email.message}</p>
         )}
       </div>
-
       <div>
         <label>Age</label>
         <input
@@ -109,7 +106,6 @@ const ReactHookForm: React.FC = () => {
           <p style={{ color: 'orangered' }}>{errors.age.message}</p>
         )}
       </div>
-
       <div>
         <label>Gender</label>
         <select {...register('gender', { required: 'Gender is required' })}>
@@ -122,7 +118,6 @@ const ReactHookForm: React.FC = () => {
           <p style={{ color: 'orangered' }}>{errors.gender.message}</p>
         )}
       </div>
-
       <div>
         <label>Address</label>
         <input
@@ -141,7 +136,6 @@ const ReactHookForm: React.FC = () => {
           <p style={{ color: 'orangered' }}>{errors.address.state.message}</p>
         )}
       </div>
-
       {/* https://react-hook-form.com/docs/usecontroller/controller
           Have to use Controller when dealing with 3rd party library.
       */}
@@ -165,7 +159,6 @@ const ReactHookForm: React.FC = () => {
           )}
         />
       </div>
-
       <div>
         <label>Hobbies</label>
         {/*{formData.hobbies.map((hobby, index) => (*/}
@@ -212,7 +205,6 @@ const ReactHookForm: React.FC = () => {
           Add Hobby
         </button>
       </div>
-
       <div>
         <label htmlFor='sub'>Subscribe to Newsletter</label>
         <input type='checkbox' id='sub' {...register('subscribe')} />
@@ -232,9 +224,7 @@ const ReactHookForm: React.FC = () => {
           )}
         </div>
       )}
-
       {errors.root && <p style={{ color: 'red' }}>{errors.root.message}</p>}
-
       <button type='submit' disabled={isSubmitting}>
         {isSubmitting ? 'Submitting...' : 'Submit'}
       </button>

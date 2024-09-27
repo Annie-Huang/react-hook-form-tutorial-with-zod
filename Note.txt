@@ -43,3 +43,5 @@ React-Hook-Form notes:
 
 What does the app do:
 - Click on "Subscribe to Newsletter" will show additional input field.
+- Click submit without entering anything will show you all the validation on each field.
+- There are 50% / 50% of getting error even if all your fields are enter correctly. (Math.random() in the api.ts)
